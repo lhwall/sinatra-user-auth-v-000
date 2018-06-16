@@ -29,12 +29,13 @@ class ApplicationController < Sinatra::Base
   post '/sessions' do
     binding.pry
     @user = User.find_by(email: params["email"], password: params["password"])
-  if !@user do
+  if !@user
     erb :"sessions/login"
   else
     session[:id] = @user.id
 #binding.pry
     redirect '/users/home'
+  end 
   end
 
   get '/sessions/logout' do
