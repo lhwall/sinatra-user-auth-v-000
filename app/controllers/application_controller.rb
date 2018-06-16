@@ -35,7 +35,7 @@ class ApplicationController < Sinatra::Base
     session[:id] = @user.id
 #binding.pry
     redirect '/users/home'
-  end 
+  end
   end
 
   get '/sessions/logout' do
